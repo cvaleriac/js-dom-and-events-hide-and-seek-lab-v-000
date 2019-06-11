@@ -1,13 +1,23 @@
-function getFirstSelector(selector) {
+function getFirstSelector(selector){
   return document.querySelector(selector);
 }
 
-function nestedTarget() {
+ function nestedTarget(){
   return document.querySelector("div.target")
-
 }
 
-function increaseRankBy(n){
+ function deepestChild(){
+  let node = document.getElementById('grand-node')
+  let childNode = node.children[0]
+
+   while(childNode){
+    node = childNode
+    childNode = node.children[0];
+  }
+  return node;
+}
+
+ function increaseRankBy(n){
   const rankedList = document.querySelectorAll('.ranked-list')
 
    for ( let i = 0, l = rankedList.length; i < l ; i++){
@@ -20,13 +30,4 @@ function increaseRankBy(n){
 
      }
   }
-  function deepestChild(){
-  let node = document.getElementById('grand-node')
-  let childNode = node.children[0]
-
-   while(childNode){
-    node = childNode
-    childNode = node.children[0];
-  }
-  return node;
 }
